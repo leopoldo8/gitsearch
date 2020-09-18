@@ -1,0 +1,41 @@
+{
+  "plugins": [
+    "syntax-dynamic-import",
+    "styled-components",
+    [
+      "module-resolver",
+      {
+        "root": [
+          "."
+        ],
+        "alias": {
+          "@components": "./src/components",
+          "@assets": "./src/assets",
+          "@contexts": "./src/contexts",
+          "@modules": "./src/modules",
+          "@pages": "./src/pages",
+          "@api": "./src/api",
+          "@src": "./src"
+        }
+      }
+    ],
+    [
+      "transform-class-properties"
+    ],
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}
