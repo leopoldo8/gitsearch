@@ -35,6 +35,6 @@ export const Display = `
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 30px;
+  line-height: 22px;
 `;

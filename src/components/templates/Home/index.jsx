@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Logo from '@components/atoms/Logo';
+
 import {
   Container,
   Title
@@ -9,6 +11,7 @@ const HomeTemplate = () => {
 
   return (
     <Container>
+      <Logo />
       <Title>GitSearch</Title>
     </Container>
   );
