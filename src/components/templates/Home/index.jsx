@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Brand from '@components/molecules/Brand';
 import Search from '@components/organisms/Search';
@@ -8,8 +8,12 @@ import {
 } from './style';
 
 const HomeTemplate = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => setLoaded(true), []);
+
   return (
-    <Container>
+    <Container loaded={loaded}>
       <BrandContainer>
         <Brand />
       </BrandContainer>
