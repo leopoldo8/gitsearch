@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Display } from '@assets/styles/typography';
-import { Gray900 } from '@assets/styles/colors';
+import { Black } from '@assets/styles/colors';
 
 export const Container = styled.div`
   width: 100%;
@@ -9,10 +9,12 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   padding-top: 65px;
+  max-width: 297px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h1`
   ${Display}
-  color: ${Gray900};
+  color: ${Black};
   margin-top: 37px;
 `;

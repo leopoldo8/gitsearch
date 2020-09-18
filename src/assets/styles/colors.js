@@ -1,8 +1,12 @@
 export const White = '#FFFFFF';
 export const Black = '#000000';
 
-export const Gray900 = '#212121';
-export const Gray800 = '#424242';
-export const Gray500 = '#9E9E9E';
+export const PrimaryColor = '#344FA5';
+
+export const PrimaryGreen = '#6FCF97';
+
+export const PrimaryGray = '#90A4AE';
+
+export const Placeholder = '#7A7A7A';
 
 export const Error = '#D32F2F';

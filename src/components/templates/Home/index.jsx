@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Logo from '@components/atoms/Logo';
+import Search from '@components/organisms/Search';
 
 import {
   Container,
@@ -13,6 +14,7 @@ const HomeTemplate = () => {
     <Container>
       <Logo />
       <Title>GitSearch</Title>
+      <Search origin="Home" />
     </Container>
   );
 }
