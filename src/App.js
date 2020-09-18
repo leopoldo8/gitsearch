@@ -2,6 +2,8 @@ import React from 'react';
 
 import Router from './router';
 
+import { UserProvider } from '@contexts/userContext';
+
 import GlobalStyles from '@modules/globalStyles';
 
 const GitSearch = () => {
@@ -9,7 +11,9 @@ const GitSearch = () => {
   return (
     <>
       <GlobalStyles />
-      <Router />
+      <UserProvider>
+        <Router />
+      </UserProvider>
     </>
   );
 };
