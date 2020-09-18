@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import { Display } from '@assets/styles/typography';
-import { Black } from '@assets/styles/colors';
-
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -13,8 +10,6 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const Title = styled.h1`
-  ${Display}
-  color: ${Black};
-  margin-top: 37px;
+export const BrandContainer = styled.div`
+  margin-bottom: 54px;
 `;

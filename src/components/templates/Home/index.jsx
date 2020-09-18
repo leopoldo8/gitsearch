@@ -1,20 +1,19 @@
 import React from 'react';
 
-import Logo from '@components/atoms/Logo';
+import Brand from '@components/molecules/Brand';
 import Search from '@components/organisms/Search';
 
 import {
-  Container,
-  Title
+  Container, BrandContainer
 } from './style';
 
 const HomeTemplate = () => {
-
   return (
     <Container>
-      <Logo />
-      <Title>GitSearch</Title>
-      <Search origin="Home" />
+      <BrandContainer>
+        <Brand />
+      </BrandContainer>
+      <Search />
     </Container>
   );
 }
