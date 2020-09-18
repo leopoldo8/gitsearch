@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Router from './router';
 
 import { UserProvider } from '@contexts/userContext';
@@ -11,6 +14,7 @@ const GitSearch = () => {
   return (
     <>
       <GlobalStyles />
+      <ToastContainer transition={Slide} />
       <UserProvider>
         <Router />
       </UserProvider>

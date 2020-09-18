@@ -1,21 +1,11 @@
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
 class API {
   constructor() {
-    this.authBearerKey = `${process.env.REACT_APP_PROJECT_NAME}-token`;
-
-    this.token = null;
-
-    this.deactivateHandleErrorOnce = false;
-
     this.service = axios.create({
       baseURL: API.host(),
-      timeout: 30000,
+      timeout: 30000
     });
-
-    this.readCredentials();
-    this.setBearer();
   }
 
   static host() {
@@ -28,34 +18,6 @@ class API {
     if (response.status) {
       console.error(response.status);
     }
-
-    const { message } = response.data;
-    if (message && !this.deactivateHandleErrorOnce) {
-      if (typeof message === 'string')
-        toast.error(message);
-      else
-        message.forEach(err => toast.error(err));
-    } else if (this.deactivateHandleErrorOnce) {
-      this.deactivateHandleErrorOnce = false;
-    }
-
-    if (response.status === 401) {
-      this.resetCredentials();
-      window.location.reload();
-    }
-  }
-
-  setBearer() {
-    this.service.defaults.headers.common.Authorization = this.token ? `Bearer ${this.token}` : '';
-  }
-
-  readCredentials() {
-    this.token = localStorage.getItem(this.authBearerKey) || '';
-  }
-
-  resetCredentials() {
-    this.token = '';
-    localStorage.setItem(this.authBearerKey, '');
   }
 
   setCredentials(token) {
