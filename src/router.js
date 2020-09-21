@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Home from '@components/pages/Home';
+import UsersList from '@components/pages/UsersList';
 import NotFound from '@components/pages/NotFound';
 
 import { White } from '@assets/styles/colors';
@@ -20,6 +21,9 @@ const RouterConfig = () => (
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route exact path="/users">
+        <UsersList />
       </Route>
       <Route component={NotFound} />
     </Switch>

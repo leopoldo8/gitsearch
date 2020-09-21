@@ -2,7 +2,8 @@ import React, { useReducer, createContext } from 'react';
 import PropTypes from 'prop-types';
 
 const initialState = {
-  name: ''
+  list: [],
+  selected: {}
 };
 
 const reducer = (state = initialState, action) => {

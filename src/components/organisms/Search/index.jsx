@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { toast } from 'react-toastify';
+import { useHistory } from "react-router-dom";
 
 import Button from '@components/molecules/Button';
 import SearchInput from '@components/molecules/SearchInput';
-
-import UsersAPI from '@api/services/users';
 
 import {
   Container,
@@ -14,31 +12,15 @@ import {
 } from './style';
 
 const Search = () => {
-  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const validationSchema = Yup.object({
     search: Yup.string().required('Digite um nome de usuário para pesquisar'),
   });
 
   const handleFormSubmit = async (values) => {
-    setLoading(values.seeAll ? 'seeAll' : 'search');
-
-    const fetchData = () => {
-      if (values.seeAll) return UsersAPI.listUsers();
-
-      return UsersAPI.search(values.search);
-    }
-
-    try {
-      const response = await fetchData();
-      if (response.status === 200) {
-        console.log(response.data);
-      }
-    } catch (e) {
-      toast.error('Alguma coisa deu errado. Tente novamente mais tarde.');
-    } finally {
-      setLoading(false);
-    }
+    const path = `/users${!values.seeAll ? `?q=${values.search}` : ''}`;
+    history.push(path);
   }
 
   const formContent = ({ setFieldValue, setFieldError, values, errors, handleSubmit, handleChange }) => {
@@ -77,13 +59,11 @@ const Search = () => {
           <Button
             label="Ver Todos"
             onClick={onSeeAll}
-            loading={loading === 'seeAll'}
           />
           <Button
             label="Buscar"
             type="secondary"
             onClick={onSearch}
-            loading={loading === 'search'}
           />
         </ButtonsContainer>
       </form>
