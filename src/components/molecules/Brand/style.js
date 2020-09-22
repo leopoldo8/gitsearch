@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Display } from '@assets/styles/typography';
+import { LargeDisplay } from '@assets/styles/typography';
 import { Black } from '@assets/styles/colors';
 
 export const Container = styled.div`
@@ -10,7 +10,7 @@ export const Container = styled.div`
 `
 
 export const Title = styled.h1`
-  ${Display}
+  ${LargeDisplay}
   color: ${Black};
   margin-top: 37px;
 `;

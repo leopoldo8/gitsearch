@@ -1,29 +1,11 @@
-export const Label = `
+export const SmallParagraph = `
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
+  font-size: 15px;
   line-height: 36px;
   -webkit-font-smoothing: antialiased;
 `;
-
-export const LargeLabel = `
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 22px;
-  -webkit-font-smoothing: antialiased;
-`;
-
-export const SmallParagraph = `
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
-  -webkit-font-smoothing: antialiased;
-`
 
 export const Paragraph = `
   font-family: 'Montserrat', sans-serif;
@@ -34,7 +16,70 @@ export const Paragraph = `
   -webkit-font-smoothing: antialiased;
 `;
 
+export const Label = `
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const XXXXXSmallDisplay = `
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const XXXXSmallDisplay = `
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const XXXSmallDisplay = `
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const XXSmallDisplay = `
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const XSmallDisplay = `
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  -webkit-font-smoothing: antialiased;
+`;
+
 export const SmallDisplay = `
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const Display = `
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -43,7 +88,7 @@ export const SmallDisplay = `
   -webkit-font-smoothing: antialiased;
 `;
 
-export const Display = `
+export const LargeDisplay = `
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;

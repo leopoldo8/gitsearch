@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { Paragraph } from './typography';
-import { Black } from './colors';
+import { SecondaryBlack } from './colors';
 
 const base = createGlobalStyle`
 html, body, #root, .page {
@@ -10,7 +10,7 @@ html, body, #root, .page {
 body {
   font-family: 'Red Hat Display';
   ${Paragraph}
-  color: ${Black};
+  color: ${SecondaryBlack};
 }
 `;
 

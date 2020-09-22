@@ -6,8 +6,10 @@ import {
 } from "react-router-dom";
 
 import Home from '@components/pages/Home';
+import User from '@components/pages/User';
 import UsersList from '@components/pages/UsersList';
 import NotFound from '@components/pages/NotFound';
+import RateLimitExceeded from '@components/pages/RateLimitExceeded';
 
 import { White } from '@assets/styles/colors';
 
@@ -24,6 +26,12 @@ const RouterConfig = () => (
       </Route>
       <Route exact path="/users">
         <UsersList />
+      </Route>
+      <Route exact path="/user/:username">
+        <User />
+      </Route>
+      <Route exact path="/rate-limit-exceeded">
+        <RateLimitExceeded />
       </Route>
       <Route component={NotFound} />
     </Switch>

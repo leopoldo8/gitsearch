@@ -8,6 +8,8 @@ import Search from '@components/organisms/Search';
 
 import PaginationHelper from '@modules/paginationHelper';
 
+import { Container } from './style';
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -49,7 +51,7 @@ const UsersListTemplate = () => {
   }, [searchQuery, pagination]);
 
   return (
-    <>
+    <Container>
       <Search origin="users-list" />
       <List
         data={data}
@@ -57,7 +59,7 @@ const UsersListTemplate = () => {
         renderItem={userItem}
         onLoadMore={loadMore}
       />
-    </>
+    </Container>
   );
 }
 

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { SmallParagraph, Label } from '@assets/styles/typography';
+import { XXXSmallDisplay, SmallParagraph } from '@assets/styles/typography';
 import { PrimaryGray, Placeholder, Error, White } from '@assets/styles/colors';
 
 export const Input = styled.input`
-  ${SmallParagraph}
+  ${XXXSmallDisplay}
   height: ${props => {
     switch (props.size) {
       default:
@@ -26,14 +26,14 @@ export const Input = styled.input`
   `}
 
   &::placeholder {
-    ${Label}
+    ${SmallParagraph}
     color: ${Placeholder};
   }
 `;
 
 export const ErrorLabel = styled.p`
   margin-top: 8px;
-  ${SmallParagraph}
+  ${XXXSmallDisplay}
   color: ${Error};
   line-height: 16px;
 `;

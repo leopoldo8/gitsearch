@@ -18,6 +18,12 @@ class API {
     if (response.status) {
       console.error(response.status);
     }
+
+    if (response.status === 403) {
+      if (window.location.pathname !== "/rate-limit-exceeded") {
+        window.location.assign("/rate-limit-exceeded");
+      }
+    }
   }
 
   setCredentials(token) {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { SecondaryGray, SecondaryColor } from '@assets/styles/colors';
-import { Label } from '@assets/styles/typography';
+import { SmallParagraph } from '@assets/styles/typography';
 
 export const Container = styled.div`
   width: calc(100% - 16px);
@@ -21,7 +21,7 @@ export const Avatar = styled.img`
 `;
 
 export const Name = styled.h1`
-  ${Label}
+  ${SmallParagraph}
   font-weight: 600;
   color: ${SecondaryColor};
 `;

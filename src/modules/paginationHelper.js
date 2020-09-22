@@ -23,6 +23,7 @@ class APIPaginationHelper extends API {
 
     this.props = {
       itemsExtractor: res => res.data,
+      per_page: DEFAULT_LIMIT,
       ...props
     };
 
@@ -40,7 +41,7 @@ class APIPaginationHelper extends API {
 
       params = {
         page: 1,
-        per_page: DEFAULT_LIMIT,
+        per_page: this.props.per_page,
         ...data
       };
     }

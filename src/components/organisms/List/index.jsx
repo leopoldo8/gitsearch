@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Loader from '@components/atoms/Loader';
 
+import { debounce } from '@modules/utils';
+
 import { ListElement, Item, LoaderContainer } from './style';
 
 const List = ({ data, renderItem: RenderItem, keyExtractor, bottomOffset, onLoadMore, loading }) => {
@@ -11,12 +13,12 @@ const List = ({ data, renderItem: RenderItem, keyExtractor, bottomOffset, onLoad
   useEffect(() => {
     const isBottom = (el) => el.getBoundingClientRect().bottom <= (window.innerHeight + bottomOffset);
 
-    const trackScrolling = () => {
+    const trackScrolling = debounce(() => {
       const wrappedElement = listRef.current;
       if (isBottom(wrappedElement)) {
         onLoadMore();
       }
-    };
+    }, 100);
 
     document.addEventListener('scroll', trackScrolling);
 

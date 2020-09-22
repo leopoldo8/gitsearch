@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 import { PrimaryColor, White, PrimaryGreen } from '@assets/styles/colors';
-import { LargeLabel } from '@assets/styles/typography';
+import { XSmallDisplay } from '@assets/styles/typography';
 
 const getColorsByType = type => {
   if (type === 'secondary')
@@ -30,7 +30,7 @@ export const StyledButton = styled.button`
   transition: .2s;
   border-radius: 4px;
 
-  ${LargeLabel}
+  ${XSmallDisplay}
 
   ${props => `
     color: ${getColorsByType(props.type).color};

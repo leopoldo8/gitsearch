@@ -10,6 +10,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
+  padding: 0 16px;
+  box-sizing: border-box;
 
   ${({ loaded }) => FadeInFromTop(loaded)}
 `;
