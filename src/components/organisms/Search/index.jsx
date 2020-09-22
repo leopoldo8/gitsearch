@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { useHistory } from "react-router-dom";
@@ -11,7 +12,7 @@ import {
   ButtonsContainer
 } from './style';
 
-const Search = () => {
+const Search = ({ origin }) => {
   const history = useHistory();
 
   const validationSchema = Yup.object({
@@ -55,17 +56,19 @@ const Search = () => {
           error={errors.search}
           onChange={e => onChange(e)}
         />
-        <ButtonsContainer>
-          <Button
-            label="Ver Todos"
-            onClick={onSeeAll}
-          />
-          <Button
-            label="Buscar"
-            type="secondary"
-            onClick={onSearch}
-          />
-        </ButtonsContainer>
+        {origin !== 'users-list' ? (
+          <ButtonsContainer>
+            <Button
+              label="Ver Todos"
+              onClick={onSeeAll}
+            />
+            <Button
+              label="Buscar"
+              type="secondary"
+              onClick={onSearch}
+            />
+          </ButtonsContainer>
+        ) : null}
       </form>
     );
   }
@@ -84,6 +87,14 @@ const Search = () => {
       </Formik>
     </Container>
   );
+};
+
+Search.propTypes = {
+  origin: PropTypes.string
+};
+
+Search.defaultProps = {
+  origin: 'home'
 }
 
 export default Search;
