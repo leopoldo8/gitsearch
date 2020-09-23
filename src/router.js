@@ -11,11 +11,8 @@ import UsersList from '@components/pages/UsersList';
 import NotFound from '@components/pages/NotFound';
 import RateLimitExceeded from '@components/pages/RateLimitExceeded';
 
-import { White } from '@assets/styles/colors';
-
 const PagesContainer = styled.div`
   width: 100%;
-  background: ${White};
 `;
 
 const RouterConfig = () => (

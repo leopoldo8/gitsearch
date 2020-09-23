@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 
 import Loader from '@components/atoms/Loader';
 import Tabs from '@components/atoms/Tabs';
-import Topbar from '@components/atoms/TopBar';
 import AboutTab from '@components/atoms/AboutTab';
+import Topbar from '@components/organisms/TopBar';
 import ProjectsTab from '@components/organisms/ProjectsTab';
 
 import UsersAPI from '@api/services/users';
@@ -20,6 +20,11 @@ import {
   SocialNumber,
   SocialLabel,
   TabsViewContainer,
+  AvatarContainer,
+  NameContainer,
+  TopContainer,
+  TabsContainer,
+  TabsSelectorContainer
 } from './style';
 
 const BannerIMG = '/static/images/banner.png';
@@ -43,7 +48,6 @@ const UserTemplate = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await UsersAPI.getUserByUsername(username);
-      console.log(response.data);
       setData(response.data);
     }
 
@@ -66,27 +70,37 @@ const UserTemplate = () => {
       return (
         <Container>
           <Banner src={BannerIMG} />
-          <Avatar src={data.avatar_url} />
-          <Name>{ data.name }</Name>
-          <Login><i className="icon-user" />{ data.login }</Login>
-          <SocialBox>
-            <SocialItem>
-              <SocialNumber><i className="icon-person" />{ data.following }</SocialNumber>
-              <SocialLabel>Seguindo</SocialLabel>
-            </SocialItem>
-            <SocialItem>
-              <SocialNumber><i className="icon-folder" />{ data.public_repos }</SocialNumber>
-              <SocialLabel>Projetos</SocialLabel>
-            </SocialItem>
-            <SocialItem>
-              <SocialNumber><i className="icon-users" />{ data.followers }</SocialNumber>
-              <SocialLabel>Seguidores</SocialLabel>
-            </SocialItem>
-          </SocialBox>
-          <Tabs items={tabs} onTabSelect={tab => setActiveTab(tab)} />
-          <TabsViewContainer>
-            <TabsView />
-          </TabsViewContainer>
+          <TopContainer>
+            <AvatarContainer>
+              <Avatar src={data.avatar_url} />
+              <NameContainer>
+                <Name>{ data.name || data.login }</Name>
+                <Login><i className="icon-user" />{ data.login }</Login>
+              </NameContainer>
+            </AvatarContainer>
+            <SocialBox>
+              <SocialItem>
+                <SocialNumber><i className="icon-person" />{ data.following }</SocialNumber>
+                <SocialLabel>Seguindo</SocialLabel>
+              </SocialItem>
+              <SocialItem>
+                <SocialNumber><i className="icon-folder" />{ data.public_repos }</SocialNumber>
+                <SocialLabel>Projetos</SocialLabel>
+              </SocialItem>
+              <SocialItem>
+                <SocialNumber><i className="icon-users" />{ data.followers }</SocialNumber>
+                <SocialLabel>Seguidores</SocialLabel>
+              </SocialItem>
+            </SocialBox>
+          </TopContainer>
+          <TabsContainer>
+            <TabsSelectorContainer>
+              <Tabs items={tabs} onTabSelect={tab => setActiveTab(tab)} />
+            </TabsSelectorContainer>
+            <TabsViewContainer>
+              <TabsView />
+            </TabsViewContainer>
+          </TabsContainer>
         </Container>
       );
     }

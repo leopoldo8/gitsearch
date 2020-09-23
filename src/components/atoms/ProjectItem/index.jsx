@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  Container, Name, Description, InfoContainer, Info
+  Container, Name, Description, InfoContainer, Info, ContentContainer
 } from './style';
 
 const ProjectItem = ({ data }) => {
@@ -14,11 +14,13 @@ const ProjectItem = ({ data }) => {
     <a target="_blank" rel="noopener noreferrer" href={data.html_url}>
       <Container>
         <Name>{ data.name }</Name>
-        <Description>{ data.description ? formatDescription(data.description) : "Esse projeto não possui descrição." }</Description>
-        <InfoContainer>
-          <Info>{ data.language }</Info>
-          <Info>Atualizado em { new Date(data.updated_at).toLocaleDateString() }</Info>
-        </InfoContainer>
+        <ContentContainer>
+          <Description>{ data.description ? formatDescription(data.description) : "Esse projeto não possui descrição." }</Description>
+          <InfoContainer>
+            {data.language && <Info><i />{ data.language }</Info>}
+            <Info>Atualizado em { new Date(data.updated_at).toLocaleDateString() }</Info>
+          </InfoContainer>
+        </ContentContainer>
       </Container>
     </a>
   );

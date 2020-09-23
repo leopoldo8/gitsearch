@@ -31,7 +31,6 @@ class APIPaginationHelper extends API {
   }
 
   async load(url, data) {
-    console.log('load');
     const isLoadMore = !url;
     let params = {};
 

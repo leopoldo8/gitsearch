@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-import { Black, PrimaryHazeBlue, SecondaryHazeBlue, PrimaryBlue } from '@assets/styles/colors';
 import { Label } from '@assets/styles/typography';
+import { desktop, mobile } from '@assets/styles/medias';
+import { Black, PrimaryHazeBlue, SecondaryHazeBlue, PrimaryBlue } from '@assets/styles/colors';
 
 export const Container = styled.ul`
   width: 100%;
@@ -10,6 +11,11 @@ export const Container = styled.ul`
   justify-content: center;
   height: 50px;
   background: ${PrimaryHazeBlue};
+
+  @media ${desktop} {
+    flex-flow: column nowrap;
+    min-height: 100px;
+  }
 `;
 
 export const Item = styled.li`
@@ -23,12 +29,29 @@ export const Item = styled.li`
   ${Label}
   color: ${Black};
 
-  &:not(:last-child) {
-    border-right: 1px solid ${SecondaryHazeBlue};
+  @media ${mobile} {
+    &:not(:last-child) {
+      border-right: 1px solid ${SecondaryHazeBlue};
+    }
   }
 
   ${({ selected }) => selected && `
     height: calc(100% - 3px);
     border-bottom: 3px solid ${PrimaryBlue};
   `}
+
+  @media ${desktop} {
+    width: 100%;
+    height: 50px;
+    border: none;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid ${SecondaryHazeBlue};
+    }
+
+    ${({ selected }) => selected && `
+      width: calc(100% - 3px);
+      border-right: 3px solid ${PrimaryBlue};
+    `}
+  }
 `;

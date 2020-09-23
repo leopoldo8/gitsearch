@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+
+import { tablet } from '@assets/styles/medias';
 import { XXXSmallDisplay, SmallParagraph } from '@assets/styles/typography';
-import { PrimaryGray, Placeholder, Error, White } from '@assets/styles/colors';
+import { PrimaryGray, Placeholder, Error, White, SenaryGray } from '@assets/styles/colors';
 
 export const Input = styled.input`
   ${XXXSmallDisplay}
@@ -20,6 +22,16 @@ export const Input = styled.input`
   border: 1px solid ${PrimaryGray};
   box-sizing: border-box;
   border-radius: 4px;
+
+  @media ${tablet} {
+    border-color: ${SenaryGray};
+    ${props => props.size === "medium" && `
+      height: 40px;
+    `}
+    ${props => !props.hasIcon && `
+      padding-left: 24px;
+    `}
+  }
 
   ${props => props.error && `
     border-color: ${Error};

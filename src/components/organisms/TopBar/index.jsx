@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import { MobileView, BrowserView } from 'react-device-detect';
+
+import Brand from '@components/molecules/Brand';
 
 import {
-  Container, Title, Icon
+  Container, Title, Icon, BrowserViewStyle, MobileViewStyle
 } from './style';
 
 const TopBar = ({ title, onGoBack }) => {
@@ -17,10 +20,19 @@ const TopBar = ({ title, onGoBack }) => {
     }
   }
 
+  const handleBrandClick = () => {
+    history.push('/');
+  }
+
   return (
     <Container>
-      <Icon className="icon-arrow" onClick={handleGoBack} />
-      <Title>{ title }</Title>
+      <MobileView style={MobileViewStyle}>
+        <Icon className="icon-arrow" onClick={handleGoBack} />
+        <Title>{ title }</Title>
+      </MobileView>
+      <BrowserView style={BrowserViewStyle}>
+        <Brand size="small" onClick={handleBrandClick} />
+      </BrowserView>
     </Container>
   );
 }

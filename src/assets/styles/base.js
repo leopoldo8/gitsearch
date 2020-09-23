@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+
+import { tablet } from './medias';
 import { Paragraph } from './typography';
-import { SecondaryBlack } from './colors';
+import { SecondaryBlack, QuinaryGray } from './colors';
 
 const base = createGlobalStyle`
 html, body, #root, .page {
@@ -11,6 +13,10 @@ body {
   font-family: 'Red Hat Display';
   ${Paragraph}
   color: ${SecondaryBlack};
+
+  @media ${tablet} {
+    background: ${QuinaryGray};
+  }
 }
 `;
 

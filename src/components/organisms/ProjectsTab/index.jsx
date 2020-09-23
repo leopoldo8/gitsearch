@@ -40,6 +40,8 @@ const ProjectsTab = ({ repos_url }) => {
         renderItem={ProjectItem}
         onLoadMore={loadMore}
         endReached={!pagination.hasNextPage}
+        verticalDesktop
+        noResultsText="Esse usuário não possui nenhum projeto."
       />
     </Container>
   );

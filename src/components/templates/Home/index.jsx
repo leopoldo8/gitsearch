@@ -4,7 +4,7 @@ import Brand from '@components/molecules/Brand';
 import Search from '@components/organisms/Search';
 
 import {
-  Container, BrandContainer
+  Container, BrandContainer, Wrapper
 } from './style';
 
 const HomeTemplate = () => {
@@ -13,12 +13,14 @@ const HomeTemplate = () => {
   useEffect(() => setLoaded(true), []);
 
   return (
-    <Container loaded={loaded}>
-      <BrandContainer>
-        <Brand />
-      </BrandContainer>
-      <Search />
-    </Container>
+    <Wrapper>
+      <Container loaded={loaded}>
+        <BrandContainer>
+          <Brand />
+        </BrandContainer>
+        <Search />
+      </Container>
+    </Wrapper>
   );
 }
 

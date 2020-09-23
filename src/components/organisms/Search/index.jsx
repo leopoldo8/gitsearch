@@ -15,6 +15,8 @@ import {
 const Search = ({ origin, initialValue }) => {
   const history = useHistory();
 
+  const isUsersList = origin === 'users-list';
+
   const validationSchema = Yup.object({
     search: Yup.string().required('Digite um nome de usuário para pesquisar'),
   });
@@ -54,10 +56,10 @@ const Search = ({ origin, initialValue }) => {
         <SearchInput
           name="search"
           value={values.search}
-          error={errors.search}
+          error={isUsersList ? false : errors.search}
           onChange={e => onChange(e)}
-          icon={origin === 'users-list' ? 'search' : ''}
-          size={origin === 'users-list' ? 'large' : 'medium'}
+          icon={isUsersList ? 'search' : ''}
+          size={isUsersList ? 'large' : 'medium'}
         />
         {origin !== 'users-list' ? (
           <ButtonsContainer>

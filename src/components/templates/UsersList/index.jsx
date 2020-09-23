@@ -1,15 +1,21 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
+import { BrowserView } from 'react-device-detect';
 import { toast } from 'react-toastify';
 
 import userItem from '@components/atoms/UserItem';
-import Topbar from '@components/atoms/TopBar';
+import Topbar from '@components/organisms/TopBar';
 import List from '@components/organisms/List';
 import Search from '@components/organisms/Search';
 
 import PaginationHelper from '@modules/paginationHelper';
 
-import { Container, SearchContainer } from './style';
+import {
+  Container,
+  SearchContainer,
+  TopContainer,
+  Title
+} from './style';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -53,13 +59,19 @@ const UsersListTemplate = () => {
 
     fetchData();
   }, [searchQuery, pagination]);
+
   return (
     <>
       <Topbar title="Lista de Usuários" onGoBack={() => history.push('/')} />
       <Container>
-        <SearchContainer>
-          <Search origin="users-list" initialValue={searchQuery} />
-        </SearchContainer>
+        <TopContainer>
+          <BrowserView>
+            <Title>Resultados da busca</Title>
+          </BrowserView>
+          <SearchContainer>
+            <Search origin="users-list" initialValue={searchQuery} />
+          </SearchContainer>
+        </TopContainer>
         <List
           data={data}
           loading={loading}
