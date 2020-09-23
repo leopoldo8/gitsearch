@@ -4,6 +4,10 @@ import {
   Container, Name, Description, InfoContainer, Info, ContentContainer
 } from './style';
 
+/**
+ * The Project item displays each project list item.
+ * It receives the project data from its props.
+ */
 const ProjectItem = ({ data }) => {
   const formatDescription = description => {
     if (description.length > 100) return `${description.slice(0, 97)}...`;

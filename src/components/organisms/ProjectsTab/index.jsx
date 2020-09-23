@@ -9,6 +9,10 @@ import PaginationHelper from '@modules/paginationHelper';
 
 import { Container } from './style';
 
+/**
+ * The AboutTab Organism displays the user projects.
+ * It receives the repos_url from props to request user's projects.
+ */
 const ProjectsTab = ({ repos_url }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);

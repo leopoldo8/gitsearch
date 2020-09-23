@@ -8,6 +8,11 @@ import {
   Title
 } from './style';
 
+/**
+ * The Brand Molecule displays the website brand.
+ * It could be in two different sizes: large or small,
+ * and may has a click listener.
+ */
 const Brand = ({ size, onClick }) => (
   <Container size={size} onClick={onClick}>
     <Logo size={size} />

@@ -9,6 +9,12 @@ import {
   Container, Title, Icon, BrowserViewStyle, MobileViewStyle
 } from './style';
 
+/**
+ * The Topbar Organism displays the topbar of the page.
+ * It receives a `title`  which will be displayed in mobile,
+ * and may also receive a `onGoBack` function which will be
+ * called when arrow's tapped in mobile.
+ */
 const TopBar = ({ title, onGoBack }) => {
   const history = useHistory();
 

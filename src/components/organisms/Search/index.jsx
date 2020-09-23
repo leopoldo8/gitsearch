@@ -12,6 +12,11 @@ import {
   ButtonsContainer
 } from './style';
 
+/**
+ * The Search Organism displays the search input to search for users.
+ * It also displays button with options to search if the origin props is `home` (default)
+ * It may also have a initialValue to fill search input.
+ */
 const Search = ({ origin, initialValue }) => {
   const history = useHistory();
 

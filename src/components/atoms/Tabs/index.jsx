@@ -5,6 +5,13 @@ import {
   Container, Item
 } from './style';
 
+/**
+ * The Tabs Atom displays N tabs and trigger tabs selection.
+ * It receives tabs data from `items` prop, an array of tabs.
+ * Each tab should have a label and an id.
+ * When a tab is selected, the `onTabSelect` is called passing
+ * the tab selected trough arguments.
+ */
 const Tabs = ({ items, onTabSelect }) => {
   const [selected, setSelected] = useState(items[0]);
 

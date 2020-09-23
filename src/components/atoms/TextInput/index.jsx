@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { Container, Input, ErrorLabel, Icon } from './style';
 
 /**
- * The TextInput Atom have 3 different sizes using the size prop: large, medium, and small.
+ * The TextInput Atom has two different sizes: medium (default) or small.
  * You can display an icon inside the input using the icon prop.
  * You can also define an error message using the error prop.
+ * It dynamically passes the props to the HTML input element, so you can use any property that an HTML <input> would.
  */
 const TextInput = ({ title, icon, error, ...props }) => {
   return (
