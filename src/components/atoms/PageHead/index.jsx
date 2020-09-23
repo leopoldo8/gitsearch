@@ -22,7 +22,7 @@ const PageHead = ({ title: titleProp, image, description, children, defaultMeta 
 }
 
 PageHead.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   image: PropTypes.string,
   description: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.any),
