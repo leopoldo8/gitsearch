@@ -87,7 +87,10 @@ export const Name = styled.h1`
 
   @media ${desktop} {
     color: ${Black};
-    font-size: 20px;
+    font-size: 18px;
+    max-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @media ${monitor} {
