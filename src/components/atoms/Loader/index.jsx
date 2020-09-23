@@ -7,8 +7,9 @@ const LoaderSVG = '/static/images/Loader.svg';
 const DarkLoaderSVG = '/static/images/Dark-Loader.svg';
 
 /**
- * The Loader Atom have 2 different sizes using the size prop: large or medium.
- * It also have two themes: dark or light.
+ * The Loader Atom displays a loader.
+ * It has 2 different sizes using the size prop: large or medium.
+ * It also has two themes: dark or light.
  */
 const Loader = ({ size, theme }) => (
   <LoaderIMG src={theme === 'dark' ? DarkLoaderSVG : LoaderSVG} draggable={false} size={size} />

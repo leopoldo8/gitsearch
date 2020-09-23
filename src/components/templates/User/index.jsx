@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 
-import Loader from '@components/atoms/Loader';
 import Tabs from '@components/atoms/Tabs';
+import Loader from '@components/atoms/Loader';
+import PageHead from '@components/atoms/PageHead';
 import AboutTab from '@components/atoms/AboutTab';
 import Topbar from '@components/organisms/TopBar';
 import ProjectsTab from '@components/organisms/ProjectsTab';
@@ -44,6 +45,8 @@ const UserTemplate = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [data, setData] = useState(null);
   const { username } = useParams();
+
+  const description = data ? `Perfil do ${data.login}` : "Perfil";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -114,6 +117,7 @@ const UserTemplate = () => {
 
   return (
     <>
+      <PageHead title="Perfil" description={description} />
       <Topbar title="Perfil" />
       {content()}
     </>

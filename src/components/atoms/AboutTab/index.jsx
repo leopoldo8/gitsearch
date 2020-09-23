@@ -7,6 +7,10 @@ import {
   ExtraInfo
 } from './style';
 
+/**
+ * The AboutTab Atom displays the bio, location and the blog of the user.
+ * It receives the user data from props.
+ */
 const AboutTab = ({ data }) => {
   const formatURL = url => {
     if (url.includes('http')) return url;

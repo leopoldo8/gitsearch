@@ -2,7 +2,7 @@
 
 This project is a front-end challenge built with React, Context API, Styled-components, Prop-types, and structured using atomic design.
 
-The GitSearch lists GitHub users, showing a little bit about themselves.
+The GitSearch lists GitHub users, showing a little bit about themselves and they projects.
 
 ## Layout
 

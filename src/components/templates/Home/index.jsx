@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import PageHead from '@components/atoms/PageHead';
 import Brand from '@components/molecules/Brand';
 import Search from '@components/organisms/Search';
 
@@ -14,6 +15,7 @@ const HomeTemplate = () => {
 
   return (
     <Wrapper>
+      <PageHead defaultMeta />
       <Container loaded={loaded}>
         <BrandContainer>
           <Brand />

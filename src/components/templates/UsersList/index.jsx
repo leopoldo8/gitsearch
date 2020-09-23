@@ -4,6 +4,7 @@ import { BrowserView } from 'react-device-detect';
 import { toast } from 'react-toastify';
 
 import userItem from '@components/atoms/UserItem';
+import PageHead from '@components/atoms/PageHead';
 import Topbar from '@components/organisms/TopBar';
 import List from '@components/organisms/List';
 import Search from '@components/organisms/Search';
@@ -62,6 +63,7 @@ const UsersListTemplate = () => {
 
   return (
     <>
+      <PageHead title="Lista de Usuários" description="Lista de usuários do GitHub" />
       <Topbar title="Lista de Usuários" onGoBack={() => history.push('/')} />
       <Container>
         <TopContainer>
