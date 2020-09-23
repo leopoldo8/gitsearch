@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 import userItem from '@components/atoms/UserItem';
+import Topbar from '@components/atoms/TopBar';
 import List from '@components/organisms/List';
 import Search from '@components/organisms/Search';
 
 import PaginationHelper from '@modules/paginationHelper';
 
-import { Container } from './style';
+import { Container, SearchContainer } from './style';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -19,7 +20,8 @@ const UsersListTemplate = () => {
   const [loading, setLoading] = useState(true);
 
   const query = useQuery();
-  const searchQuery = query.get("q");
+  const history = useHistory();
+  let searchQuery = query.get("q");
 
   const pagination = useCallback(new PaginationHelper({
     success: data => {
@@ -31,8 +33,10 @@ const UsersListTemplate = () => {
   }), [searchQuery]);
 
   const loadMore = () => {
-    setLoading(true);
-    pagination.loadNextPage();
+    if (pagination.hasNextPage) {
+      setLoading(true);
+      pagination.loadNextPage();
+    }
   }
 
   useEffect(() => {
@@ -49,17 +53,22 @@ const UsersListTemplate = () => {
 
     fetchData();
   }, [searchQuery, pagination]);
-
   return (
-    <Container>
-      <Search origin="users-list" />
-      <List
-        data={data}
-        loading={loading}
-        renderItem={userItem}
-        onLoadMore={loadMore}
-      />
-    </Container>
+    <>
+      <Topbar title="Lista de Usuários" onGoBack={() => history.push('/')} />
+      <Container>
+        <SearchContainer>
+          <Search origin="users-list" initialValue={searchQuery} />
+        </SearchContainer>
+        <List
+          data={data}
+          loading={loading}
+          renderItem={userItem}
+          onLoadMore={loadMore}
+          endReached={!pagination.hasNextPage}
+        />
+      </Container>
+    </>
   );
 }
 

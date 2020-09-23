@@ -12,7 +12,7 @@ import {
   ButtonsContainer
 } from './style';
 
-const Search = ({ origin }) => {
+const Search = ({ origin, initialValue }) => {
   const history = useHistory();
 
   const validationSchema = Yup.object({
@@ -30,21 +30,22 @@ const Search = ({ origin }) => {
       handleChange(event);
     }
 
-    const onSeeAll = (e) => {
+    const onSeeAll = async () => {
       setFieldValue('seeAll', true, false);
     }
 
     const onSearch = () => {
-      setFieldValue('seeAll', false)
+      setFieldValue('seeAll', false);
     }
 
     const onSubmit = (e) => {
+      e.preventDefault();
+
       if (values.seeAll) {
-        e.preventDefault();
         setFieldError('search', '');
         handleFormSubmit(values);
       } else {
-        handleSubmit(e);
+        handleSubmit(values);
       }
     }
 
@@ -55,17 +56,21 @@ const Search = ({ origin }) => {
           value={values.search}
           error={errors.search}
           onChange={e => onChange(e)}
+          icon={origin === 'users-list' ? 'search' : ''}
+          size={origin === 'users-list' ? 'large' : 'medium'}
         />
         {origin !== 'users-list' ? (
           <ButtonsContainer>
             <Button
-              label="Ver Todos"
-              onClick={onSeeAll}
+              label="Buscar"
+              type="submit"
+              schema="secondary"
+              onClick={onSearch}
             />
             <Button
-              label="Buscar"
-              type="secondary"
-              onClick={onSearch}
+              label="Ver Todos"
+              type="submit"
+              onClick={onSeeAll}
             />
           </ButtonsContainer>
         ) : null}
@@ -77,7 +82,7 @@ const Search = ({ origin }) => {
     <Container>
       <Formik
         onSubmit={handleFormSubmit}
-        initialValues={{ search: '' }}
+        initialValues={{ search: initialValue || '', seeAll: false }}
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur={false}
@@ -90,11 +95,13 @@ const Search = ({ origin }) => {
 };
 
 Search.propTypes = {
-  origin: PropTypes.string
+  origin: PropTypes.string,
+  initialValue: PropTypes.string
 };
 
 Search.defaultProps = {
-  origin: 'home'
+  origin: 'home',
+  initialValue: ''
 }
 
 export default Search;

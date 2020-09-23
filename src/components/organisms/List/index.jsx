@@ -1,13 +1,13 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Loader from '@components/atoms/Loader';
 
 import { debounce } from '@modules/utils';
 
-import { ListElement, Item, LoaderContainer } from './style';
+import { ListElement, Item, LoaderContainer, EndListText } from './style';
 
-const List = ({ data, renderItem: RenderItem, keyExtractor, bottomOffset, onLoadMore, loading }) => {
+const List = ({ data, renderItem: RenderItem, keyExtractor, bottomOffset, onLoadMore, loading, endReached }) => {
   const listRef = useRef();
 
   useEffect(() => {
@@ -39,6 +39,11 @@ const List = ({ data, renderItem: RenderItem, keyExtractor, bottomOffset, onLoad
           <Loader size="large" theme="dark" />
         </LoaderContainer>
       ) : null}
+      {endReached && !loading ? (
+        <EndListText>
+          Fim da lista
+        </EndListText>
+      ) : null}
     </ListElement>
   );
 };
@@ -49,14 +54,16 @@ List.propTypes = {
   keyExtractor: PropTypes.func,
   bottomOffset: PropTypes.number,
   onLoadMore: PropTypes.func,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  endReached: PropTypes.bool
 };
 
 List.defaultProps = {
   keyExtractor: item => item.id,
   bottomOffset: 150,
   onLoadMore: () => null,
-  loading: false
+  loading: false,
+  endReached: false
 };
 
 export default List;

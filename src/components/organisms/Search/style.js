@@ -9,11 +9,11 @@ export const Container = styled.div`
 export const ButtonsContainer = styled.div`
   margin-top: 19px;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row-reverse nowrap;
   justify-content: center;
   width: 100%;
 
   button:first-child {
-    margin-right: 22px;
+    margin-left: 22px;
   }
 `;

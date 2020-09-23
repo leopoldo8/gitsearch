@@ -4,8 +4,8 @@ import { darken } from 'polished';
 import { PrimaryColor, White, PrimaryGreen } from '@assets/styles/colors';
 import { XSmallDisplay } from '@assets/styles/typography';
 
-const getColorsByType = type => {
-  if (type === 'secondary')
+const getColorsBySchema = schema => {
+  if (schema === 'secondary')
     return {
       color: White,
       background: PrimaryGreen
@@ -33,8 +33,8 @@ export const StyledButton = styled.button`
   ${XSmallDisplay}
 
   ${props => `
-    color: ${getColorsByType(props.type).color};
-    background: ${getColorsByType(props.type).background};
+    color: ${getColorsBySchema(props.schema).color};
+    background: ${getColorsBySchema(props.schema).background};
   `}
 
   ${props => props.loading ?
@@ -42,11 +42,11 @@ export const StyledButton = styled.button`
     pointer-events: none;
   ` : `
     &:hover, &:focus {
-      background: ${darken(.04, getColorsByType(props.type).background)}
+      background: ${darken(.04, getColorsBySchema(props.schema).background)}
     }
   `}
 
   &:active {
-    background: ${props => darken(.08, getColorsByType(props.type).background)}
+    background: ${props => darken(.08, getColorsBySchema(props.schema).background)}
   }
 `;

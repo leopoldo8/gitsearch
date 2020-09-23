@@ -39,6 +39,7 @@ const ProjectsTab = ({ repos_url }) => {
         loading={loading}
         renderItem={ProjectItem}
         onLoadMore={loadMore}
+        endReached={!pagination.hasNextPage}
       />
     </Container>
   );

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Loader from '@components/atoms/Loader';
 import Tabs from '@components/atoms/Tabs';
+import Topbar from '@components/atoms/TopBar';
 import AboutTab from '@components/atoms/AboutTab';
 import ProjectsTab from '@components/organisms/ProjectsTab';
 
@@ -59,39 +60,49 @@ const UserTemplate = () => {
     }
   }
 
-  if (data) {
+  const content = () => {
+
+    if (data) {
+      return (
+        <Container>
+          <Banner src={BannerIMG} />
+          <Avatar src={data.avatar_url} />
+          <Name>{ data.name }</Name>
+          <Login><i className="icon-user" />{ data.login }</Login>
+          <SocialBox>
+            <SocialItem>
+              <SocialNumber><i className="icon-person" />{ data.following }</SocialNumber>
+              <SocialLabel>Seguindo</SocialLabel>
+            </SocialItem>
+            <SocialItem>
+              <SocialNumber><i className="icon-folder" />{ data.public_repos }</SocialNumber>
+              <SocialLabel>Projetos</SocialLabel>
+            </SocialItem>
+            <SocialItem>
+              <SocialNumber><i className="icon-users" />{ data.followers }</SocialNumber>
+              <SocialLabel>Seguidores</SocialLabel>
+            </SocialItem>
+          </SocialBox>
+          <Tabs items={tabs} onTabSelect={tab => setActiveTab(tab)} />
+          <TabsViewContainer>
+            <TabsView />
+          </TabsViewContainer>
+        </Container>
+      );
+    }
+
     return (
-      <Container>
-        <Banner src={BannerIMG} />
-        <Avatar src={data.avatar_url} />
-        <Name>{ data.name }</Name>
-        <Login><i className="icon-user" />{ data.login }</Login>
-        <SocialBox>
-          <SocialItem>
-            <SocialNumber><i className="icon-person" />{ data.following }</SocialNumber>
-            <SocialLabel>Seguindo</SocialLabel>
-          </SocialItem>
-          <SocialItem>
-            <SocialNumber><i className="icon-folder" />{ data.public_repos }</SocialNumber>
-            <SocialLabel>Projetos</SocialLabel>
-          </SocialItem>
-          <SocialItem>
-            <SocialNumber><i className="icon-users" />{ data.followers }</SocialNumber>
-            <SocialLabel>Seguidores</SocialLabel>
-          </SocialItem>
-        </SocialBox>
-        <Tabs items={tabs} onTabSelect={tab => setActiveTab(tab)} />
-        <TabsViewContainer>
-          <TabsView />
-        </TabsViewContainer>
+      <Container full>
+        <Loader size="large" theme="dark" />
       </Container>
     );
   }
 
   return (
-    <Container full>
-      <Loader size="large" theme="dark" />
-    </Container>
+    <>
+      <Topbar title="Perfil" />
+      {content()}
+    </>
   )
 }
 

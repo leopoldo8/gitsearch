@@ -10,7 +10,7 @@ import { StyledButton } from './style';
  * You also can define its label and whether the loader is displayed or not
  * It dynamically passes the props to the HTML element, so you can use any property that an HTML <button> would.
  */
-const Button = ({ type, label, loading, ...props }) => {
+const Button = ({ schema, label, loading, ...props }) => {
   const Content = () => {
     if (loading)
       return <Loader />;
@@ -19,7 +19,7 @@ const Button = ({ type, label, loading, ...props }) => {
   }
 
   return (
-    <StyledButton type={type} loading={loading ? 1 : 0} {...props}>
+    <StyledButton schema={schema} loading={loading ? 1 : 0} {...props}>
       <Content />
     </StyledButton>
   );
@@ -27,12 +27,12 @@ const Button = ({ type, label, loading, ...props }) => {
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['primary', 'secondary']),
+  schema: PropTypes.oneOf(['primary', 'secondary']),
   loading: PropTypes.bool
 }
 
 Button.defaultProps = {
-  type: 'primary',
+  schema: 'primary',
   loading: false
 }
 

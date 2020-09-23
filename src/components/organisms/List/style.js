@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { XXXSmallDisplay } from '@assets/styles/typography';
+
 export const ListElement = styled.ul`
   padding-bottom: 40px;
 `;
@@ -21,4 +23,10 @@ export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
+
+export const EndListText = styled.p`
+  text-align: center;
+  margin-top: 24px;
+  ${XXXSmallDisplay}
+`;

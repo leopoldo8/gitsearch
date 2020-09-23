@@ -25,6 +25,10 @@ export const Input = styled.input`
     border-color: ${Error};
   `}
 
+  ${props => props.hasIcon && `
+    padding-left: 39px;
+  `}
+
   &::placeholder {
     ${SmallParagraph}
     color: ${Placeholder};
@@ -36,4 +40,15 @@ export const ErrorLabel = styled.p`
   ${XXXSmallDisplay}
   color: ${Error};
   line-height: 16px;
+`;
+
+export const Container = styled.div`
+  position: relative;
+`
+
+export const Icon = styled.i`
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  font-size: 16px;
 `;
