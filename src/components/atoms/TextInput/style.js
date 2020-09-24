@@ -16,6 +16,7 @@ export const Input = styled.input`
     }
   }};
   background: ${White};
+  appearance: none;
   outline: 0;
   padding: 6px;
   width: 100%;
@@ -43,6 +44,7 @@ export const Input = styled.input`
 
   &::placeholder {
     ${SmallParagraph}
+    line-height: 20px;
     color: ${Placeholder};
   }
 `;
